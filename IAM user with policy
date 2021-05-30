@@ -1,4 +1,4 @@
-#Define user
+#Define IAM user
 resource "aws_iam_user" "user" {
     name = "TestUser" #UserName
     tags = {
@@ -24,8 +24,8 @@ resource "aws_iam_policy" "admin"{
 }
 
 resource "aws_iam_policy_attachment" "Admin" {
-    name = "IAM-policy-attachement"
-    users = [aws_iam_user.user.name]
+    name = "IAM-policy-attachement"  
+    users = [aws_iam_user.user.name]  #Make sure you put within list
     policy_arn = aws_iam_policy.admin.arn
   
 }
